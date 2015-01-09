@@ -34,8 +34,6 @@ This project requires maven.
    $ mvn jetty:run
    ```
 
-Questions or suggestions? Please don't hesitate to email me at roman.kazarin@stormpath.com
-
 ====================
 
 ### Application walkthrough:
