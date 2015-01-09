@@ -5,5 +5,5 @@ import com.stormpath.sdk.client.Client;
 public class StormpathUtils {
 
     static Client myClient;
-    static final String applicationHref = "https://api.stormpath.com/v1/applications/3TqbyZ1qo74eDM4gTo2H94";
+    static final String applicationHref = "REPLACE_ME_WITH_YOUR_STORMPATH_APP_REST_URL";
 }
