@@ -4,7 +4,6 @@ import com.stormpath.sdk.api.ApiKey;
 import com.stormpath.sdk.api.ApiKeys;
 import com.stormpath.sdk.client.Client;
 import com.stormpath.sdk.client.Clients;
-import com.stormpath.sdk.impl.cache.DefaultCacheManager;
 
 import javax.servlet.*;
 import java.io.File;
@@ -33,7 +32,7 @@ public class MyServlet implements ServletContextListener {
             String apiKeyPath =  System.getProperty("user.home") + "/.stormpath/apiKey.properties";
 
             ApiKey apiKey = ApiKeys.builder().setFileLocation(apiKeyPath).build();
-            Client client = Clients.builder().setApiKey(apiKey).setCacheManager(new DefaultCacheManager()).build();
+            Client client = Clients.builder().setApiKey(apiKey).build();
             StormpathUtils.myClient = client;
 
             return;

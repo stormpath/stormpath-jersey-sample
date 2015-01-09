@@ -22,4 +22,9 @@
     <listener>
         <listener-class>com.sample.jersey.app.MyServlet</listener-class>
     </listener>
+
+    <welcome-file-list>
+        <welcome-file>login.html</welcome-file>
+    </welcome-file-list>
+
 </web-app>
