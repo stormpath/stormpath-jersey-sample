@@ -3,22 +3,23 @@ stormpath-jersey-sample
 
 This is a sample web application that uses Java + Jersey on the backend and Angular JS on the frontend. It demonstrates using the Stormpath SDK to generate API Keys, create new accounts, generate Oauth Tokens, and make HTTP calls to REST endpoints using both Oauth and Basic Authentication.
 
-This project requires maven.
+## Links
 
-Get started:
+Below are some resources you might find useful!
+- [Stormpath Sample Jersey to-do app](https://github.com/stormpath/todos-jersey)
+- [Stormpath API Authentication](http://docs.stormpath.com/guides/api-key-management/)
 
-```
-$ git clone https://github.com/rkazarin/sample-jersey-webapp.git
-$ cd sample-jersey-webapp
-$ mvn install
-```
-Deploy the .war file to your web container/application server and launch/access it according to your container's configuration.
+**Stormpath Java Support**
+- [Stormpath API Docs for Java](https://docs.stormpath.com/java/apidocs/)
+- [Stormpath Java Product Guide](https://docs.stormpath.com/java/product-guide/)
+- [Stormpath Java SDK](https://github.com/stormpath/stormpath-sdk-java)
 
-Questions or suggestions? Please don't hesitate to email me at roman.kazarin@stormpath.com
+## Documentation
 
-====================
+Please email support@stormpath.com with any errors, issues or questions.
 
-### Application walkthrough:
+
+### Application Walkthrough:
 
 **Login Screen** <br>
 Type your username/password if you have an account. If not, fill out the 'Create Account' form, submit, and then sign in.<br>
@@ -43,3 +44,27 @@ Since we included San Mateo in our scope when generating an Oauth Token we can v
 **Make a forbidden REST call using Oauth** <br>
 Since we did not include Berlin in our scope when generating an Oauth Token, attempting to view it's weather is prohibited!
 ![alt tag](http://i.imgur.com/HvhKuml.png)
+
+## Build Instructions ##
+
+This project requires maven.
+
+```
+$ git clone https://github.com/rkazarin/sample-jersey-webapp.git
+$ cd sample-jersey-webapp
+$ mvn install
+```
+Deploy the .war file to your web container/application server and launch/access it according to your container's configuration.
+
+## Contributing
+
+Contributions, bug reports and issues are very welcome. Stormpath regularly maintains this repository, and are quick to review pull requests and accept changes!
+
+You can make your own contributions by forking the develop branch of this
+repository, making your changes, and issuing pull request on the develop branch.
+
+## Copyright ##
+
+Copyright &copy; 2013-2015 Stormpath, Inc. and contributors.
+
+This project is open-source via the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
