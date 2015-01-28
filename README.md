@@ -1,7 +1,10 @@
 stormpath-jersey-sample
 ====================
 
-This is a sample web application that uses Java + Jersey on the backend and Angular JS on the frontend. It demonstrates using the Stormpath SDK to generate API Keys, create new accounts, generate Oauth Tokens, and make HTTP calls to REST endpoints using both Oauth and Basic Authentication.
+This is a sample web application that uses Java + Jersey on the backend and Angular JS on the frontend. It demonstrates how to use the Stormpath Java SDK to generate API Keys, create new accounts, generate Oauth Tokens, and make HTTP calls to REST endpoints using both Oauth and Basic Authentication.
+
+Stormpath is a User Management API that reduces development time with instant-on, scalable user infrastructure. Stormpath's intuitive API and expert support make it easy for developers to authenticate, manage, and secure users and roles in any application.
+
 
 ## Links
 
