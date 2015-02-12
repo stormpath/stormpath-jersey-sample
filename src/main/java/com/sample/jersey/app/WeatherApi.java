@@ -13,7 +13,6 @@ import com.stormpath.sdk.oauth.OauthAuthenticationResult;
 import com.stormpath.sdk.resource.ResourceException;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
-import com.stormpath.sdk.client.*;
 import com.stormpath.sdk.application.Application;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,23 +48,7 @@ public class WeatherApi {
 
                 public void visit(ApiAuthenticationResult result) {
                     System.out.println("Basic request");
-
-                    URL weatherURL = getURL(myCity);
-
-                    //Parse weather data into our POJO
-                    ObjectMapper mapper = new ObjectMapper();
-                    mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                    City city = null;
-
-                    try {
-                        InputStream in = weatherURL.openStream();
-                        city = mapper.readValue(in, City.class);
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    weatherResult = city.toString() + " °F";
+                    weatherResult = getWeather(myCity) + " °F";
                 }
 
                 public void visit(OauthAuthenticationResult result) {
@@ -129,12 +112,28 @@ public class WeatherApi {
         mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         City myCity = null;
 
+        HttpURLConnection urlConnection = null;
+        InputStream inputStream = null;
         try {
-            InputStream in = weatherURL.openStream();
-            myCity = mapper.readValue(in, City.class);
+            urlConnection = (HttpURLConnection) weatherURL.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.connect();
+            inputStream = urlConnection.getInputStream();
+            myCity = mapper.readValue(inputStream, City.class);
 
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    // Let's swallow this exception
+                }
+            }
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
         }
 
         return myCity.toString();

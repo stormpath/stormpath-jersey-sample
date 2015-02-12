@@ -5,20 +5,40 @@ This is a sample web application that uses Java + Jersey on the backend and Angu
 
 This project requires maven.
 
-Get started:
+### Checkout Instructions ###
+   ```
+   $ git clone git@github.com:stormpath/stormpath-jersey-sample.git
+   $ cd stormpath-jersey-sample
+   ```
+### Configuration Instructions ###
 
-```
-$ git clone https://github.com/rkazarin/sample-jersey-webapp.git
-$ cd sample-jersey-webapp
-$ mvn install
-```
-Deploy the .war file to your web container/application server and launch/access it according to your container's configuration.
+1. Ensure you [have an API Key](http://docs.stormpath.com/rest/quickstart) so your application can communicate with Stormpath.  Store your API Key file somewhere secure (readable only by you), for example:
 
-Questions or suggestions? Please don't hesitate to email me at roman.kazarin@stormpath.com
+   ```text
+   /home/myhomedir/.stormpath/apiKey.properties
+   ```
+
+2. Replace the `applicationHref` value in `com.sample.jersey.app.StormpathUtils` with your [Application's Stormpath-specific REST URL](http://docs.stormpath.com/rest/product-guide/#locate-an-applications-rest-url), for example:
+
+   ```java
+   static final String applicationHref = "https://api.stormpath.com/v1/applications/someRandomIdHereReplaceMe";
+   ```
+
+### Build Instructions ###
+   ```
+   $ mvn clean package
+   ```
+
+## Running the Sample Application ##
+   ```
+   $ mvn jetty:run
+   ```
 
 ====================
 
 ### Application walkthrough:
+
+Once Jetty has started, you can open [http://localhost:8080](http://localhost:8080) in your Web Browser.
 
 **Login Screen** <br>
 Type your username/password if you have an account. If not, fill out the 'Create Account' form, submit, and then sign in.<br>
